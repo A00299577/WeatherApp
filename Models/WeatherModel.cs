@@ -3,24 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
-namespace WeatherApp.Models
+namespace WeatherApp.Models;
+
+public class WeatherModel
 {
-
-    //  Represents the weather data for a given city.
-    // This model contains details such as temperature, humidity, weather condition, and wind speed.
-    public class WeatherModel
-    {
-        public float Temperature { get; set; }
-
-        public int Humidity { get; set; }
-
-        public string Condition { get; set; }
-
-        public float WindSpeed { get; set; }
-
-        public float pressure { get; set; }
-
-        public DateTime ReportTime { get; set; }
-    }
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
+    public string City { get; set; }
+    public string Description { get; set; }
+    public double Temperature { get; set; }
+    public int Humidity { get; set; }
+    public float WindSpeed { get; set; }
+    public DateTime FetchedAt { get; set; }
 }
